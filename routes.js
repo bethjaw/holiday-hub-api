@@ -42,6 +42,13 @@ router.get('/groupsByUser/:id', (req, res) => {
   })
 })
 
+router.get('/usergroupdata', (req, res) => {
+  query.getUsersGroups()
+  .then((usersGroups) => {
+    res.json(usersGroups)
+  })
+})
+
 
 
 module.exports = router

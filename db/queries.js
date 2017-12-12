@@ -21,10 +21,16 @@ function getGroupsByUser(id){
 }
 
 
+function getUsersGroups(){
+  return db('users_groups').select('*').innerJoin('users', 'users.id', 'users_id').innerJoin('groups', 'groups_id', 'groups.id')
+}
+
+
 module.exports = {
   getUsers,
   getUserById,
   getGifts,
   getUsersByGroup,
   getGroupsByUser,
+  getUsersGroups
 }
