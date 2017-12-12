@@ -16,6 +16,9 @@ function getUsersByGroup(id){
   return db('users').select('*').where('groups_id', id).innerJoin('users_groups', 'users_id', 'users.id').innerJoin('groups', 'groups_id', 'groups.id')
 }
 
+function getGroupsByUser(id){
+  return db('groups').select('*').where('users_id', id).innerJoin('users_groups', 'groups_id', 'groups.id').innerJoin('users', 'users_id', 'users.id')
+}
 
 
 module.exports = {
@@ -23,4 +26,5 @@ module.exports = {
   getUserById,
   getGifts,
   getUsersByGroup,
+  getGroupsByUser,
 }

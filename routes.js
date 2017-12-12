@@ -34,6 +34,14 @@ router.get('/userByGroup/:id', (req, res) => {
   })
 })
 
+router.get('/groupsByUser/:id', (req, res) => {
+  let id = req.params.id
+  query.getGroupsByUser(id)
+  .then((groupData) => {
+    res.json(groupData)
+  })
+})
+
 
 
 module.exports = router
