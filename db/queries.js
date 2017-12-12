@@ -4,6 +4,10 @@ function getUsers(){
   return db('users').select()
 }
 
+function getUserById(id){
+  return db('users').select().where('id', id)
+}
+
 function getGifts(id){
   return db('gifts').select('*').where('users_id', id)
 }
@@ -16,6 +20,7 @@ function getUsersByGroup(id){
 
 module.exports = {
   getUsers,
+  getUserById,
   getGifts,
   getUsersByGroup,
 }

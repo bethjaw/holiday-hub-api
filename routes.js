@@ -10,6 +10,14 @@ router.get('/users', (req, res) => {
   })
 })
 
+router.get('/users/:id', (req, res) => {
+  let id = req.params.id
+  query.getUserById(id)
+  .then((user) => {
+    res.json(user)
+  })
+})
+
 router.get('/gifts/:id', (req, res) => {
   let id = req.params.id
   query.getGifts(id)
